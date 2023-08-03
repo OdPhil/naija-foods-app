@@ -49,12 +49,45 @@ const foodData = [
 function App() {
   return (
     <div>
-      <h1>Hello React!</h1>
+      <Header />
+      <Menu />
+      <Footer />
+    </div>
+  );
+}
+
+function Header() {
+  return <h1>Alata Naija Foods</h1>;
+}
+
+function Menu() {
+  return (
+    <div>
+      <h2>Our Menu:</h2>
+      <Foods />
       <Foods />
       <Foods />
       <Foods />
     </div>
   );
+}
+
+function Footer() {
+  const hour = new Date().getHours();
+  const openHour = 8;
+  const closeHour = 22;
+  const isOpen = hour >= openHour && hour <= closeHour;
+  console.log(isOpen);
+
+  // if (hour >= openHour && hour <= closeHour) alert("We're currently open!");
+  // else alert("Sorry, we're closed.");
+
+  return (
+    <footer>
+      {new Date().toLocaleTimeString()} - - We're currently open!!!
+    </footer>
+  );
+  // return React.createElement("footer", null, "We're currently open!");
 }
 
 function Foods() {
